@@ -1,0 +1,223 @@
+:root{
+    --nav-color:#333333;
+    --img-color:#aaaaaa;
+    --bg-color:#f1f1f1;
+    
+}
+html, body{
+    text-align: center;
+    margin: 0px;
+}
+#content{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    margin: 0, auto;
+    grid-gap: 10px;
+    margin: 0 100px;
+       
+}
+#content.home{
+    grid-template-areas: 
+    "header header header header"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "footer footer footer footer"
+    "footer footer footer footer" 
+}
+#content.shop{
+    grid-template-areas: 
+    "header header header header"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "footer footer footer footer"
+    "footer footer footer footer" 
+}
+#content.fill-in{
+    grid-template-areas: 
+    "header header header header"
+    ". . . ."
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "footer footer footer footer"
+    "footer footer footer footer" 
+}
+#content.details{
+    grid-template-areas: 
+    "header header header header"
+    ". . . ."
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "footer footer footer footer"
+    "footer footer footer footer" 
+}
+#content.vo{
+    grid-template-areas: 
+    "header header header header"
+    ". . . ."
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "main main main main"
+    "footer footer footer footer"
+    "footer footer footer footer" 
+}
+
+
+header{
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(250, 250, 250);
+    padding: 5px 35px;
+
+}
+main{
+    grid-area: main;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    margin: 0, auto;
+    grid-gap: 10px;
+  
+}
+.home main{
+    grid-template-areas:
+    ". search search search"
+    "aside slider slider slider"
+    "aside slider slider slider" 
+    "h1 h1 h1 h1"
+    "galery galery galery galery"
+    "galery galery galery galery"
+    "galery galery galery galery"
+    ". . . button"
+}
+.shop main{
+    grid-template-areas:
+    "search search search search" 
+    "h1 h1 h1 h1"
+    "galery galery galery galery"
+    "galery galery galery galery"
+    "galery galery galery galery"
+    ". . . pagination"
+}
+.img-detail{
+    grid-area: img;
+}
+main p{
+    grid-area: p;
+}
+
+.details main{
+    grid-template-areas:
+    "search search search search"
+    ". . . ." 
+    "img img h1 h1"
+    "img img p p"
+    ". . . button"
+    ". . . ."
+}
+.vo main{
+    grid-template-areas:
+    ". . . ." 
+    "img img h1 h1"
+    "img img p p"
+    ". . . button"
+    ". . . ."
+}
+main form{
+    grid-area: form;
+    display: block;
+}
+form button{
+    grid-area: btn;
+}
+form >*{
+    margin: 20px 40px;
+    display: block;
+    margin: 20px auto;
+
+}
+.fill-in main{
+    grid-template-areas:
+    ". form form ."
+    ". form form ."
+    ". form form ."
+    "btn btn btn btn"
+}
+.pagination{
+    grid-area: pagination;
+}
+footer{
+    grid-area: footer;
+    background-color: rgb(250, 250, 250);
+    height: 200px;
+}
+
+li{
+    display: inline;
+    list-style: none;
+    background: #fff;
+}
+
+main .search{
+    grid-area: search;
+    display: flex;
+    width: 100%;
+    align-content: stretch;
+}
+.search input{
+    flex:2 2 120em
+}
+.search button{
+    flex:1 1 2em
+}
+main aside{
+    grid-area: aside;
+}
+.slider{
+    grid-area: slider;
+    background-color: rgb(241, 237, 237);
+    height: 400px;
+}
+main h1{
+    grid-area: h1;
+}
+.galery{
+    grid-area: galery;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+main button{
+    grid-area: button;
+}
+
+main >*{
+    background-color: rgb(250, 250, 250);
+}
+
+.product{
+    background-color: rgb(194, 192, 192);
+    width: 200px;
+    height: 200px;
+    margin: 10px 40px;
+}
+
+.wrapper{
+    padding: 100px;
+    background-color: beige;
+}
+
+.wrapper p{
+    background-color: chocolate;
+}

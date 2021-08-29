@@ -1,0 +1,421 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 0px 10px;
+    background: #f1f1f1;
+    margin: 0px 30px;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 30px;
+    text-align: center;
+    background: white;
+}
+
+.header div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header h1 {
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    margin-bottom: 50px;
+}
+
+/* Style the topnav links */
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the slider */
+
+.slider{
+    display: flex;
+    text-align: center;
+}
+.arrow{
+    background-color:#ddd;
+    height: 400px;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+.arrow svg{
+    display: block;
+    margin: auto;
+}
+.rightarrow{
+    transform: rotate(180deg);
+}
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.rightcolumn {   
+    float: left;
+    width: 75%;
+}
+
+/* Right column */
+.leftcolumn {
+    float: left;
+    width: 25%;
+    background-color: #f1f1f1;
+}
+
+
+/* d */
+
+.search{
+    height: 80px;
+    display: flex;
+    width: 100%;
+    /* margin-top: 20px; */
+    padding: 20px 10px;   
+    /* margin: 20px 10px; */
+    margin: auto;
+}
+.shop .search, .details .search{
+    width: 80%;
+}
+.search input{
+    flex:2 2 120em
+}
+.search button{
+    flex:1 1 2em;
+    background-color: #333;
+}
+ul{
+    padding: 0px;
+    
+}
+li{
+    list-style: none;
+}
+
+.category li{
+    background-color: #333;
+    text-align: center;
+    padding: 14px 16px;
+
+}
+.category li a{
+    color: rgb(170, 164, 164);
+    text-decoration: none;
+
+}
+
+.category li:hover{
+    background-color: #ddd;
+}
+
+.btnwrapper{
+    display: flex;
+    justify-content:space-between;
+    /* margin: auto; */
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+.btnwrapper button, .btn{
+    padding: 7px 20px;
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 3px solid #333;
+    /* border-radius: 15px 50px; */
+    margin: 10px;
+}
+
+
+
+.buy button{
+    float: right;
+}
+
+.cardd{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    width: 240px;
+    height: 480px;
+    margin: 20px 10px;
+    position: relative;
+}
+.containerr{
+    padding:0.01em 16px;
+}
+
+/* d */
+
+/* Fake image */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 50px 20px;   
+    margin: 20px 10px;
+}
+
+.category{
+    margin-top: 90px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style products galery */
+.galery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.product{
+    display: flex;
+}
+
+
+/* forms */
+form{
+    display: flex;
+    flex-direction: column;
+}
+form >*{
+    margin: 10px 30%;
+    padding: 10px 10px;
+}
+
+/* steps  */
+
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+  
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+  
+  .stepper-item.active {
+    font-weight: bold;
+  }
+  
+  .stepper-item.completed .step-counter {
+    background-color: #333;
+  }
+  
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #333;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
+
+/* steps */
+/* table */
+table {
+    text-align: center;
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+    background-color: #333;
+    color: #ffffff;
+    text-align: left;
+}
+table th,
+table td {
+    padding: 12px 15px;
+}
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #333;
+}
+
+/* table */
+.total{
+    font-weight: bolder; 
+    float: right; 
+    margin-right: 120px;
+}
+.total::after{
+    clear: both;
+}
+
+.basket .btnwrapper{
+    margin: 60px 10%;
+}
+
+/* Footer */
+.footer {
+    padding: 100px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 100px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+    }
+}
+
+/* d */
+
+@media screen and (max-width: 936px) {
+    
+    .cardd{
+        width: 260px;
+    }
+    form >*{
+        margin: 10px 20%;
+    }
+
+}
+@media screen and (max-width: 756px) {
+    
+    .cardd{
+        width: 320px;
+    }
+    form >*{
+        margin: 10px 10%;
+    }
+    table{
+        min-width: 100%;
+    }
+    .product{
+        display: block;
+    }
+
+}
+
+/* d */
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+    float: none;
+    width: 100%;
+    }
+    .header div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: auto;
+    }
+    .btnwrapper{
+        display: block;
+        text-align: center;
+    }
+    .btnwrapper button{
+        padding: 7px 70px;
+    }
+    .shop .search, .details .search{
+        width: 100%;
+    }
+    .buy{
+        text-align: center;
+    }
+    .buy button{
+        float:none;
+    }
+    form >*{
+        margin: 10px 10%;
+    }
+    
+}
+
+
+/**/
+

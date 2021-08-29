@@ -1,0 +1,23 @@
+<%- include("./partials/top.ejs")%>
+
+<div class="card">
+    
+    <%switch(url) {
+        case '/changePassword':%>
+          <%- include("./partials/changePassword.ejs") %>
+          <% break;
+        case '/contactUs':%>
+          <%- include("./partials/contactUs.ejs") %>
+          <% break;
+          case '/logIn':%>
+          <%- include("./partials/logIn.ejs") %>
+          <% break;
+        case '/singUp':%>
+          <%- include("./partials/singUp.ejs") %>
+          <% break;
+        default:%>
+          <%- include("./404.ejs") %>
+        <% }%>
+</div>
+
+<%- include("./partials/bottom.ejs")%>

@@ -1,0 +1,62 @@
+<%- include("./partials/top.ejs")%>
+<div class="basket">
+
+    
+    <div class="card">
+        <div class="stepper-wrapper">
+            <div class="stepper-item step1 active">
+              <div class="step-counter">1</div>
+              <div class="step-name">Verify Order</div>
+            </div>
+            <div class="stepper-item step2">
+              <div class="step-counter">2</div>
+              <div class="step-name">Confirm Order</div>
+            </div>
+        </div>
+
+        <div class="vo">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="product"><div class="fakeimg"></div><span>Title....</span></td>
+                        <td>###</td>
+                        <td>$$</td>
+                    </tr>
+                    <tr>
+                        <td class="product"><div class="fakeimg"></div><span>Title....</span></td>
+                        <td>###</td>
+                        <td>$$</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <div class="total">TOTAL : ****$$</div>
+    
+            <div class="btnwrapper">
+                <button><a href="/">button</a></button>
+                <button class="verify">button</button>
+            </div>
+        </div>
+
+        <div class="co" style="display: none;">
+            <form>
+                <h3>Fill in your personal info</h3>
+                <input type="text" placeholder="input">
+                <input type="text" placeholder="input">
+                <input type="text" placeholder="input">
+                <input type="text" placeholder="input">
+            </form>
+            <div class="btnwrapper">
+                <button class="backToVerify">button</button>
+                <button class="confirm">button</button>
+            </div>
+        </div>
+    </div>
+<%- include("./partials/bottom.ejs")%>
