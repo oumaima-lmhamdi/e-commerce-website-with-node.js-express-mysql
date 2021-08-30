@@ -10,22 +10,12 @@ module.exports = {
      */
 
      return queryInterface.createTable('users', {
-      user_id: {
+      googleId: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(100)
       },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING(50)
-      },
-      email: {
-        allowNull: false,
-        type: Sequelize.STRING(100),
-        unique: 'idx_customer_email'
-      },
-      password: {
+      username: {
         allowNull: false,
         type: Sequelize.STRING(50)
       }

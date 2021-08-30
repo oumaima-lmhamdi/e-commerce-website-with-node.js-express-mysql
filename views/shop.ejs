@@ -38,7 +38,10 @@
               </div>
               <div class="btnwrapper">
                 <button><a href="/products/<%= product.product_id %>/details">button</a></button>
-                <button>button</button>
+                <form action="/baskets/add" method="POST">
+                    <input type="hidden" name="id" value="<%= product.product_id %>">
+                    <button type="submit">button</button>
+                </form>
               </div>
             </div>
             <%})%>

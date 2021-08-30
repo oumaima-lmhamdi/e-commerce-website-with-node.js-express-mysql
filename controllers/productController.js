@@ -25,14 +25,14 @@ const ProductController = {
                 where: { category_name: req.params.category_name },
                 attributes: ['product_id', 'name', 'price'],
               });
-            return res.render('shop', { products, category_name:req.params.category_name });
+            return res.render('shop', { products, category_name:req.params.category_name, user:req.user });
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
         }
     },
 
-    ////////////////////////////
+
 
     /**
      * Fetches a list of products based on a specific category and subcategory
@@ -47,7 +47,7 @@ const ProductController = {
                 where: { category_name: req.params.category_name, subcategory_name: req.params.subcategory_name  },
                 attributes: ['product_id', 'name', 'price'],
               });
-            return res.render('shop', { products, category_name:req.params.category_name, subcategory_name:req.params.subcategory_name });
+            return res.render('shop', { products, category_name:req.params.category_name, subcategory_name:req.params.subcategory_name, user:req.user });
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
@@ -72,7 +72,7 @@ const ProductController = {
                     where: { name: { [Op.like]: "%" + term + "%" } },
                     attributes: ['product_id', 'name', 'price'],
                   });
-                return res.render('shop', {products, term} );
+                return res.render('shop', {products, term, user:req.user} );
             
             
 
@@ -94,10 +94,10 @@ const ProductController = {
         try {
             const product = await Product.findOne({
                 where: { product_id: req.params.product_id },
-                attributes: ['name', 'description', 'price', 'stock', 'image']
+                attributes: ['product_id', 'name', 'description', 'price', 'stock', 'image']
             })
 
-            return res.render('viewDetails', { product });
+            return res.render('viewDetails', { product, user:req.user });
         } catch (err) {
             console.log(err)
             return res.status(500).send(err)

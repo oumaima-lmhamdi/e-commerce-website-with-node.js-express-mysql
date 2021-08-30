@@ -8,8 +8,8 @@ router.get('/login', (req, res) => {
 
 // auth logout
 router.get('/logout', (req, res) => {
-    // handle with passport
-    res.send('logging out');
+    req.logout();
+    res.redirect('/products/category3');
 });
 
 // auth with google+
@@ -19,7 +19,7 @@ router.get('/google', passport.authenticate('google', {
 
 // redirect URL
 router.get('/google/redirect', passport.authenticate('google'), (req, res)=>{
-    res.send('HEYYY');
+    res.redirect('/products/category3');
 });
 
 module.exports = router;
