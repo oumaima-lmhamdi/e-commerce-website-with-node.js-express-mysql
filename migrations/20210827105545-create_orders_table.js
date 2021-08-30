@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(100)
       },
       deliverylocation_id: {
         type: Sequelize.INTEGER

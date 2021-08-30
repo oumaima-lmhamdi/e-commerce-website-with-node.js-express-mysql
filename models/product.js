@@ -19,9 +19,10 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   
-//   Product.associate = function(models) {
-//     Product.belongsTo(models.Category, { through: 'ProjectCategory' })
-//     Product.belongsTo(models.ProductCategory, { foreignKey: 'product_id', targetKey: 'product_id' })
-//   };
+  Product.associate = function(models) {
+    // Product.belongsTo(models.Category, { through: 'ProjectCategory' })
+    // Product.belongsTo(models.ProductCategory, { foreignKey: 'product_id', targetKey: 'product_id' })
+    // Product.belongsTo(models.Basket, { foreignKey: 'product_id', targetKey: 'product_id' });
+  };
   return Product;
 };

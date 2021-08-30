@@ -1,7 +1,7 @@
 const db = require('../models')
 const Basket = db.sequelize.models.Basket;
 const User = db.sequelize.models.User;
-
+const Product = db.sequelize.models.Product;
 
 /**
  * handling products requests
@@ -12,7 +12,7 @@ const BasketController = {
     
 
     /**
-     * Fetches a list of products based on a specific category
+     * Add a product to basket
      * @param {*} req 
      * @param {*} res 
      */
@@ -21,22 +21,49 @@ const BasketController = {
         
         try {
 
-            // let id = req.body.product_id;
-            // console.log(req.body.product_id);
-            // console.log(req.body);
-            // console.log(req.query);
-
-            const uid = req.user.googleId;
-            const pid = req.body.id;
-
-          await Basket.create({ product_id: pid, user_id: uid});
-          console.log(pid, uid);
+            // const pid = req.body.id;
+          
+        //   await Basket.create({ product_id: pid, user_id: req.user.googleId});
+            await sequelize.query(`
+            INSERT INTO baskets (user_id, product_id)
+            VALUES ('${req.user.googleId}', '${req.body.id}');
+          `, {type: sequelize.QueryTypes.INSERT});
           return res.redirect('/products/category1');
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
         }
     },
+
+    /**
+     * Fetches list of products on a specific basket
+     * @param {*} req 
+     * @param {*} res 
+     */
+     async getBasketProducts(req, res) {
+       
+        
+        try {
+            
+
+            const products = await sequelize.query(
+                `SELECT products.name FROM products INNER JOIN baskets ON products.product_id=baskets.product_id WHERE baskets.user_id = '${req.user.googleId}'`,
+                { type: sequelize.QueryTypes.SELECT});
+            // const products = await Basket.findAll({
+            //     include: [
+
+            //         {model: Product} // nothing in attributes here in order to not import columns from products
+            //     ],
+            //     attributes: ['name'],
+            //   });
+            console.log(products);
+            return res.render('basket', { products, user:req.user });
+        } catch(err) {
+            console.log(err)
+            return res.status(500).send(err)
+        }
+    },
+
 
 
 

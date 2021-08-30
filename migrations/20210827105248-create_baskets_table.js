@@ -19,7 +19,7 @@ module.exports = {
       },
       user_id: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(100)
       },
       product_id: {
         allowNull: false,

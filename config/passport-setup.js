@@ -43,6 +43,7 @@ passport.use(
         // check if user already exists in our own db
         User.findOne({where: {googleId: profile.id}}).then((currentUser) => {
             if(currentUser){
+                console.log(profile);
                 // already have this user
                 console.log('user is: ', currentUser);
                 done(null, currentUser);

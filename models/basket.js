@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    user_id: DataTypes.INTEGER,
+    user_id: DataTypes.STRING,
     product_id: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,
     created_at: DataTypes.DATE
@@ -14,8 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'baskets',
     timestamps: false
   });
-  // Basket.associate = function(models) {
-  //   // associations can be defined here
-  // };
+  Basket.associate = function(models) {
+    // associations can be defined here
+    // Basket.hasMany(models.Product, { foreignKey: 'product_id', targetKey: 'product_id' })
+  };
   return Basket;
 };

@@ -24,16 +24,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <%products.forEach( product =>{%>
                     <tr>
-                        <td class="product"><div class="fakeimg"></div><span>Title....</span></td>
+                        <td class="product"><div class="fakeimg"></div><span><%= product.name %></span></td>
                         <td>###</td>
                         <td>$$</td>
                     </tr>
-                    <tr>
-                        <td class="product"><div class="fakeimg"></div><span>Title....</span></td>
-                        <td>###</td>
-                        <td>$$</td>
-                    </tr>
+                    <%});%>
                 </tbody>
             </table>
     

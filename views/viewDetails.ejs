@@ -38,10 +38,10 @@
                   <p><span style="font-weight: bolder;">DESCRIPTION: </span><%= product.description %></p>
                   <p><span style="font-weight: bolder;">PRICE: </span> <%= product.price %> DH</p>
                   <div class="buy">
-                    <!-- <form action="/baskets/add">
+                    <form action="/baskets/add" method="POST">
                         <input type="hidden" name="id" value="<%= product.product_id %>">
-                        <button type="submit" name="submit">button</button>
-                    </form>         -->
+                        <button type="submit">button</button>
+                    </form>
                   </div>
                 </div>
             </div>

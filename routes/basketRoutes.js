@@ -4,8 +4,8 @@ const router = express.Router();
 
 
 
-router.post('/add', basketController.addToBasket)
-// router.get('/:cart_id', basketController.getBasketProducts)
+router.post('/add', basketController.addToBasket);
+router.get('/', basketController.getBasketProducts);
 // router.delete('/removeProduct/:item_id', basketController.removeFromBasket)
 // router.delete('/empty/:cart_id', basketController.clearBasket)
 
