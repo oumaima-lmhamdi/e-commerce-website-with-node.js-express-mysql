@@ -12,6 +12,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const express = require('express');
 const bodyParser = require('body-parser');
+const Product = db.sequelize.models.Product
 
 // express app
 const app = express();
@@ -49,16 +50,12 @@ app.get('/viewDetails', (req, res) => {
 app.get('/', (req, res) => {
 
   
-  // pool.getConnection(function (err, connection) {
-  //   if (err) throw err;
-  //   connection.query("SELECT product_title, product_price FROM products LIMIT 16", function (err, result, fields) {
-  //     connection.release();
-  //     if (err) throw err;
-  //     res.render('index', {products: result});
-  //   });
-  // });
-
-});
+ Product.findAll({
+            attributes: ['product_id', 'name', 'price'],
+          }).then(result => res.render('index', { products:result,  user:req.user })) 
+            .catch((err)=> res.status(500).send(err));        
+    }
+);
 
 
 app.get('/changePassword', (req, res) => {

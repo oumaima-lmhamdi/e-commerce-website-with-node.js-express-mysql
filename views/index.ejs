@@ -4,7 +4,7 @@
         <div class="card category">
           <h3>Categories</h3>
           <ul>
-            <li><a href="">category</a></li>
+            <li><a href="/products/category1">category</a></li>
             <li><a href="">category</a></li>
             <li><a href="">category</a></li>
           </ul>
@@ -36,27 +36,73 @@
           </button>          
         </form>
         <div class="card">
-          <div class="slider">
-            <div class="arrow">
-              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  width="30px" viewBox="0 0 199.404 199.404" style="enable-background:new 0 0 199.404 199.404;"
-                  xml:space="preserve">
-                <g>
-                  <polygon points="135.412,0 35.709,99.702 135.412,199.404 163.695,171.119 92.277,99.702 163.695,28.285 	"/>
-                </g>
-              </svg>
-            </div>
-            <div class="fakeimg" style="height:400px;">Image</div>
-            <div class="arrow">
-              <svg class="rightarrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  width="30px" viewBox="0 0 199.404 199.404" style="enable-background:new 0 0 199.404 199.404;"
-                  xml:space="preserve">
-                <g>
-                  <polygon points="135.412,0 35.709,99.702 135.412,199.404 163.695,171.119 92.277,99.702 163.695,28.285 	"/>
-                </g>
-              </svg>
-            </div>
-          </div>
+
+
+          <section class="carousel" aria-label="Gallery">
+            <ol class="carousel__viewport">
+              <li id="carousel__slide1"
+                  tabindex="0"
+                  class="carousel__slide">
+                <div class="carousel__snapper">
+                  <a href="#carousel__slide4"
+                     class="carousel__prev">Go to last slide</a>
+                  <a href="#carousel__slide2"
+                     class="carousel__next">Go to next slide</a>
+                </div>
+              </li>
+              <li id="carousel__slide2"
+                  tabindex="0"
+                  class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide1"
+                   class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide3"
+                   class="carousel__next">Go to next slide</a>
+              </li>
+              <li id="carousel__slide3"
+                  tabindex="0"
+                  class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide2"
+                   class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide4"
+                   class="carousel__next">Go to next slide</a>
+              </li>
+              <li id="carousel__slide4"
+                  tabindex="0"
+                  class="carousel__slide">
+                <div class="carousel__snapper"></div>
+                <a href="#carousel__slide3"
+                   class="carousel__prev">Go to previous slide</a>
+                <a href="#carousel__slide1"
+                   class="carousel__next">Go to first slide</a>
+              </li>
+            </ol>
+            <aside class="carousel__navigation">
+              <ol class="carousel__navigation-list">
+                <li class="carousel__navigation-item">
+                  <a href="#carousel__slide1"
+                     class="carousel__navigation-button">Go to slide 1</a>
+                </li>
+                <li class="carousel__navigation-item">
+                  <a href="#carousel__slide2"
+                     class="carousel__navigation-button">Go to slide 2</a>
+                </li>
+                <li class="carousel__navigation-item">
+                  <a href="#carousel__slide3"
+                     class="carousel__navigation-button">Go to slide 3</a>
+                </li>
+                <li class="carousel__navigation-item">
+                  <a href="#carousel__slide4"
+                     class="carousel__navigation-button">Go to slide 4</a>
+                </li>
+              </ol>
+            </aside>
+          </section>
+
+
+
+
         </div>
       </div>
     </div>
@@ -68,12 +114,15 @@
         <div class="cardd">
           <div class="fakeimg" style="height: 200px;">Image</div>
           <div class="containerr">
-            <h2><%= product.product_title%></h2>
-            <h5>Price: <%= product.product_price%> $$</h5>
+            <h2><%= product.name %></h2>
+            <h5>Price: <%= product.price %> $$</h5>
           </div>
           <div class="btnwrapper">
             <button><a href="/products/<%= product.product_id %>/details">button</a></button>           
-            <button>button</button>
+            <form action="/baskets/add" method="POST">
+              <input type="hidden" name="id" value="<%= product.product_id %>">
+              <button type="submit">button</button>
+          </form>
           </div>
         </div>
         <%})%>

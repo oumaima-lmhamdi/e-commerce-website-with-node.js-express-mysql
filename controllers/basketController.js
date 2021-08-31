@@ -47,7 +47,7 @@ const BasketController = {
             
 
             const products = await sequelize.query(
-                `SELECT products.name FROM products INNER JOIN baskets ON products.product_id=baskets.product_id WHERE baskets.user_id = '${req.user.googleId}'`,
+                `SELECT products.name, baskets.product_id FROM products INNER JOIN baskets ON products.product_id=baskets.product_id WHERE baskets.user_id = '${req.user.googleId}'`,
                 { type: sequelize.QueryTypes.SELECT});
             // const products = await Basket.findAll({
             //     include: [
@@ -118,24 +118,47 @@ const BasketController = {
 
 
     
-    // /**
-    //  * Fetches details of a specific product
-    //  * @param {*} req 
-    //  * @param {*} res 
-    //  */
-    // async getProductDetails (req, res) {
-    //     try {
-    //         const product = await Product.findOne({
-    //             where: { product_id: req.params.product_id },
-    //             attributes: ['name', 'description', 'price', 'stock', 'image']
-    //         })
+    /**
+     * remove product from a basket
+     * @param {*} req 
+     * @param {*} res 
+     */
+    async removeFromBasket (req, res) {
+        try {
+            
+            await Basket.destroy({
+                            where: { product_id: req.params.product_id  }
+                          });
+            
 
-    //         return res.render('viewDetails', { product });
-    //     } catch (err) {
-    //         console.log(err)
-    //         return res.status(500).send(err)
-    //     }
-    // },
+            return res.json({ redirect: '/baskets' });
+        } catch (err) {
+            console.log(err)
+            return res.status(500).send(err)
+        }
+    },
+
+
+    /**
+     * remove product from a basket
+     * @param {*} req 
+     * @param {*} res 
+     */
+     async clearBasket (req, res) {
+        try {
+            
+            await Basket.destroy({
+                            where: { user_id: req.user.googleId  }
+                          });
+            
+
+            return res.json({ redirect: '/baskets' });
+        } catch (err) {
+            console.log(err)
+            return res.status(500).send(err)
+        }
+    },
+
 
     
 

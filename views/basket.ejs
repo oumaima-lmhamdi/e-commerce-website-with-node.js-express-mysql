@@ -21,6 +21,7 @@
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Price</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,11 +30,12 @@
                         <td class="product"><div class="fakeimg"></div><span><%= product.name %></span></td>
                         <td>###</td>
                         <td>$$</td>
+                        <td><button><a class="delete" data-doc="<%= product.product_id %>">delete</a></button></td>
                     </tr>
                     <%});%>
                 </tbody>
             </table>
-    
+            <button><a class="clear" data-doc="<%= user.googleId%>">clear</a></button>
             <div class="total">TOTAL : ****$$</div>
     
             <div class="btnwrapper">
@@ -56,4 +58,31 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const rm = document.querySelectorAll('a.delete');
+        rm.forEach(elmt =>{
+            elmt.addEventListener('click', (e) => {
+            const endpoint = `/baskets/removeProduct/${elmt.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect)
+            .catch(err => console.log(err));
+            });
+        })
+        
+        const clr = document.querySelector('a.clear');
+        clr.addEventListener('click', (e) => {
+            const endpoint = `/baskets/clearBasket/${clr.dataset.doc}`;
+            fetch(endpoint, {
+                method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect)
+            .catch(err => console.log(err));
+        });
+        
+      </script>
 <%- include("./partials/bottom.ejs")%>
