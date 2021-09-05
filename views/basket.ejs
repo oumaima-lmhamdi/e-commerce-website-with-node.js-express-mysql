@@ -21,7 +21,7 @@
                         <th>Product</th>
                         <th>Quantity</th>
                         <th>Price</th>
-                        <th>action</th>
+                        <th><button><a class="clear" data-doc="<%= user.googleId%>">clear all</a></button></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,15 +30,14 @@
                         <td class="product"><div class="fakeimg"></div><span><%= product.name %></span></td>
                         <td>###</td>
                         <td>$$</td>
-                        <td><button><a class="delete" data-doc="<%= product.product_id %>">delete</a></button></td>
+                        <td><button><a class="delete" data-doc="<%= product.product_id %>">X</a></button></td>
                     </tr>
                     <%});%>
                 </tbody>
             </table>
-            <button><a class="clear" data-doc="<%= user.googleId%>">clear</a></button>
             <div class="total">TOTAL : ****$$</div>
     
-            <div class="btnwrapper">
+            <div class="btn-wrap">
                 <button><a href="/">button</a></button>
                 <button class="verify">button</button>
             </div>
@@ -52,11 +51,12 @@
                 <input type="text" placeholder="input">
                 <input type="text" placeholder="input">
             </form>
-            <div class="btnwrapper">
+            <div class="btn-wrap">
                 <button class="backToVerify">button</button>
                 <button class="confirm">button</button>
             </div>
         </div>
+    </div>
     </div>
 
     <script>

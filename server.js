@@ -58,21 +58,10 @@ app.get('/', (req, res) => {
 );
 
 
-app.get('/changePassword', (req, res) => {
-  res.render('fillIn', { url:req.route.path});
-});
-
 app.get('/contactUs', (req, res) => {
-  res.render('fillIn', { url:req.route.path});
+  res.render('contact', { url:req.route.path, user: req.user});
 });
 
-app.get('/logIn', (req, res) => {
-  res.render('fillIn', { url:req.route.path});
-});
-
-app.get('/singUp', (req, res) => {
-  res.render('fillIn', { url:req.route.path});
-});
 
 app.get('/shop', (req, res) => {
   res.render('shop', { c:"shop" });

@@ -11,10 +11,12 @@
         </div>
       </div>
       <div class="rightcolumn">
-        <form action="/products/search" class="search">
-          <input type="text" name="term" placeholder="searching for..">
-          <button type="submit">
-              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <form class="form-inline" action="/products/search">
+
+        <input type="text" placeholder="Search.." name="term">
+        <button type="submit">
+
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               width="24px" viewBox="0 0 310.42 310.42" fill="#fff" style="enable-background:new 0 0 310.42 310.42;"
               xml:space="preserve">
               <g>
@@ -33,8 +35,11 @@
                   </g>
               </g>
               </svg>
-          </button>          
-        </form>
+
+        </button>
+      </form>
+
+        
         <div class="card">
 
 
@@ -99,10 +104,6 @@
               </ol>
             </aside>
           </section>
-
-
-
-
         </div>
       </div>
     </div>
@@ -118,10 +119,12 @@
             <h5>Price: <%= product.price %> $$</h5>
           </div>
           <div class="btnwrapper">
-            <button><a href="/products/<%= product.product_id %>/details">button</a></button>           
+            <form action="">
+              <button class=""><a href="/products/<%= product.product_id %>/details">button</a></button>         
+            </form>
             <form action="/baskets/add" method="POST">
               <input type="hidden" name="id" value="<%= product.product_id %>">
-              <button type="submit">button</button>
+              <button class="" type="submit"><a>button</a></button>
           </form>
           </div>
         </div>

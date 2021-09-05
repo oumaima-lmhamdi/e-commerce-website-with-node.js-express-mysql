@@ -9,7 +9,7 @@ router.get('/login', (req, res) => {
 // auth logout
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/products/category3');
+    res.redirect('/');
 });
 
 // auth with google+
@@ -19,7 +19,7 @@ router.get('/google', passport.authenticate('google', {
 
 // redirect URL
 router.get('/google/redirect', passport.authenticate('google'), (req, res)=>{
-    res.redirect('/products/category3');
+    res.redirect('/');
 });
 
 module.exports = router;

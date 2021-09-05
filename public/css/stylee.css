@@ -87,7 +87,7 @@ body {
 
 /* d */
 
-.search{
+.searcha{
     display: inline-block;
     position: relative;
     height: 80px;
@@ -99,13 +99,13 @@ body {
     margin: auto;
     flex-wrap: wrap;
 }
-.shop .search, .details .search{
+.shop .searcha, .details .searcha{
     width: 80%;
 }
-.search input{
+.searcha input{
     /* flex:2 2 120em */
 }
-.search button{
+.searcha button{
     /* flex:1 1 2em; */
     position: absolute;
     background-color: #333;
@@ -147,9 +147,20 @@ li{
     margin-bottom: 20px;
     background-color: #f2f2f2;
     color: #333;
-    border: 3px solid #333;
-    /* border-radius: 15px 50px; */
+    /* border: 3px solid #333;
+    border-radius: 15px 50px; */ 
     margin: 10px;
+}
+
+.basket .card{
+  padding: 200px 2px;
+}
+.btn-wrap{
+  position: absolute;
+  bottom: 60px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 
@@ -184,6 +195,7 @@ li{
     background-color: white;
     padding: 50px 20px;   
     margin: 20px 10px;
+    position: relative;
 }
 
 .category{
@@ -209,14 +221,14 @@ li{
 
 
 /* forms */
-form{
+/* form{
     display: flex;
     flex-direction: column;
 }
 form >*{
     margin: 10px 30%;
     padding: 10px 10px;
-}
+} */
 
 /* steps  */
 
@@ -577,9 +589,120 @@ table tbody tr:last-of-type {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
   }
 
-/*Search bar style*/
+/*
+search bar
+*/
 
 
+input[type="text"] {
+    width: 80%;
+    padding-right: 50px;
+    flex-shrink: 0;
+}
+
+input[type="submit"] {
+    margin-left: -50px;
+    height: 25px;
+    width: 20%;
+    background: blue;
+    color: white;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+/* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+}
+
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  /* margin: 5px 10px 5px 0; */
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 11px 20px;
+  background-color: #333;
+  border: 1px solid #ddd;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+/**/
+
+/**/
+.btna{
+  font-family: lato,sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  position: relative;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+}
+
+/*Login*/
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 100px 0px;
+}
+.login h1{
+  text-align: center;
+}
+.login button{
+  background-color: #4c8bf5;
+  color: #f1f1f1;
+  padding: 20px 120px;
+}
+.login button a {
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.contact{
+  display: flex;
+  /* align-items:flex-start; */
+  /* justify-content: center; */
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+.contact form{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.contact form >*{
+  margin-top: 40px;
+  padding: 10px 0px;
+}
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -597,7 +720,7 @@ table tbody tr:last-of-type {
     .cardd{
         width: 260px;
     }
-    form >*{
+    .fill-in form >*{
         margin: 10px 20%;
     }
 
@@ -607,7 +730,7 @@ table tbody tr:last-of-type {
     .cardd{
         width: 320px;
     }
-    form >*{
+    .fill-in form >*{
         margin: 10px 10%;
     }
     table{
@@ -620,6 +743,18 @@ table tbody tr:last-of-type {
 }
 
 /* d */
+@media screen and (max-width: 600px) {
+  input[type="text"] {
+    width: 70%;
+  }
+  .contact{
+    width: 250px;
+  }
+  .contact form{
+    width: 250px;
+  }
+
+}
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
@@ -638,7 +773,7 @@ table tbody tr:last-of-type {
         text-align: center;
     }
     .btnwrapper button{
-        padding: 7px 70px;
+        padding: 7px 55px;
     }
     .shop .search, .details .search{
         width: 100%;
@@ -649,9 +784,19 @@ table tbody tr:last-of-type {
     .buy button{
         float:none;
     }
-    form >*{
+    .fill-in form >*{
         margin: 10px 10%;
     }
+    .login button{
+      padding: 20px 60px;
+    }
+    .contact{
+      width: 200px;
+    }
+    .contact form{
+      width: 200px;
+    }
+  
     
 }
 
