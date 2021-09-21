@@ -45,6 +45,14 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// check if user is loged in or not
+const authCheck = (req, res, next) => {
+  if(!req.user){
+      res.redirect('/auth/login');
+  } else {
+      next();
+  }
+};
 
 app.get('/', (req, res) => {
 
@@ -57,7 +65,7 @@ app.get('/', (req, res) => {
  );
 
 
-app.get('/contactUs', (req, res) => {
+app.get('/contactUs', authCheck, (req, res) => {
   res.render('contact', { url:req.route.path, user: req.user});
 });
 

@@ -1,6 +1,10 @@
 <%- include("./partials/top.ejs")%>
 <div class="basket">
-    <%const count= products.lenght;%>
+    <% if(Object.keys(products).length==0){%>
+        <div class="card">
+            <h3 class="notfound">You don't have any product in your basket!</h3>
+        </div>
+    <%}else{%>
 
     
     <div class="card">
@@ -14,9 +18,6 @@
               <div class="step-name">Confirm Order</div>
             </div>
         </div>
-        <% if(count==0){%>
-            <h2 style="text-align: center;">You have no products in basket yet !</h2>;
-        <%}else{%>
 
         <div class="vo">
             <table>
@@ -64,8 +65,8 @@
                 </form>
               </div>
         </div>
-        <%}%>
     </div>
+    <%}%>
     </div>
 
     <script>
@@ -95,40 +96,3 @@
         
       </script>
 <%- include("./partials/bottom.ejs")%>
-
-<div class="leftcolumn">
-    <div class="card category">
-      <h3>Categories</h3>
-      <ul>
-        <% let categoryname = products[0].category_name; %>
-        <li><a href="/products/<%= categoryname %>"><%= categoryname %></a></li>
-
-          <% let subcategoriesofcategory = products.filter((item, index) => {return item.category_name == categoryname;});%>
-          <% let subcategories = new Array();%>
-          <% subcategoriesofcategory.forEach(product=>{ subcategories.push(product.subcategory_name)});%>
-
-          <%let uniquesubcategories = subcategories.filter((c, index) => { return subcategories.indexOf(c) === index;});%>
-
-          <ul>
-          <%uniquesubcategories.forEach(subcategory=>{%>
-          <li><a href="/products/<%= categoryname %>/<%= subcategory %>"><%= subcategory %></a></li>         
-          <%});%>
-          </ul>
-
-
-
-
-        <%products.forEach(product=>{%>
-            <%if(product.category_name !== categoryname){%>
-            <li><a href="/products/<%= product.category_name %>"><%= product.category_name%></a></li>
-            <% categoryname = product.category_name %>
-            <%}%>           
-        <%})%>
-      </ul>
-    </div>
-  </div>
-
-
-
-
-

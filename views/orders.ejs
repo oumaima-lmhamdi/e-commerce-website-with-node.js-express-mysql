@@ -1,12 +1,14 @@
 
 <%- include("./partials/top.ejs")%>
-<h3>My orders</h3>
 
-<%const count= orders.lenght;%>
 
-<% if(count==0){%>
-    <h2>You have no orders yet !</h2>;
+
+<% if(Object.keys(orders).length==0){%>
+    <div class="card">
+        <h3 class="notfound">You have no orders yet!</h3>
+    </div>
 <%}else{ let order_id=orders[0].order_id;%>
+  <h3>My orders</h3>
   <div class='card'>
       <h3>ORDER ID:<%= order_id%></h3>
       <% let thisorder = orders.filter(item => item.order_id === order_id); %>

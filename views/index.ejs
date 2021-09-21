@@ -1,4 +1,9 @@
 <%- include("./partials/top.ejs")%>
+<% if(Object.keys(products).length==0){%>
+  <div class="card">
+      <h3 class="notfound">No products to show!</h3>
+  </div>
+<%}else{%>
 <%products.sort((a, b) => a.category_name.localeCompare(b.category_name));%>
     <div class="row">
       <div class="leftcolumn">
@@ -130,7 +135,7 @@
             </form>
             <form action="/baskets/add" method="POST">
               <input type="hidden" name="id" value="<%= product.product_id %>">
-              <button class="" type="submit"><a>button</a></button>
+              <button class="" type="submit">button</button>
             </form>
           </div>
         </div>
@@ -139,5 +144,6 @@
     </div>
 
     </div>
+    <%}%>
 
 <%- include("./partials/bottom.ejs")%>
