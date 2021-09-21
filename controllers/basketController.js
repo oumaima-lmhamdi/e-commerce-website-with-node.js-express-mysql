@@ -2,7 +2,7 @@ const db = require('../models')
 const Basket = db.sequelize.models.Basket;
 
 /**
- * handling products requests
+ * handling baskets requests
  */
 const BasketController = {
 
@@ -28,7 +28,7 @@ const BasketController = {
             INSERT INTO baskets (user_id, product_id, quantity)
             VALUES ('${req.user.googleId}', '${req.body.id}', '${req.body.quantity}');
           `, {type: sequelize.QueryTypes.INSERT});
-          return res.redirect('/products/category1');
+          return res.redirect('/');
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)

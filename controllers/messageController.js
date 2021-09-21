@@ -6,7 +6,7 @@ const Op = Sequelize.Op;
 
 
 /**
- * handling products requests
+ * handling message requests
  */
 const MessageController = {
 
@@ -24,7 +24,7 @@ const MessageController = {
             INSERT INTO messages (user_id, content)
             VALUES ('${req.user.googleId}', '${req.body.message}');
             `, {type: sequelize.QueryTypes.INSERT});
-            return res.redirect('/products/category1');
+            return res.redirect('/');
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
