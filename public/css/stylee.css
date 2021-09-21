@@ -9,6 +9,11 @@ body {
     margin: 0px 30px;
 }
 
+a{
+  text-decoration: none;
+  color: #333;
+}
+
 /* Header */
 .header {
     padding: 30px;
@@ -31,7 +36,7 @@ body {
 .topnav {
     overflow: hidden;
     background-color: #333;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 /* Style the topnav links */
@@ -49,6 +54,8 @@ body {
     background-color: #ddd;
     color: black;
 }
+
+
 
 /* Style the slider */
 
@@ -70,7 +77,6 @@ body {
 .rightarrow{
     transform: rotate(180deg);
 }
-/* Create two unequal columns that floats next to each other */
 /* Left column */
 .rightcolumn {   
     float: left;
@@ -87,29 +93,7 @@ body {
 
 /* d */
 
-.searcha{
-    display: inline-block;
-    position: relative;
-    height: 80px;
-    /* display: flex; */
-    width: 100%;
-    /* margin-top: 20px; */
-    padding: 20px 10px;   
-    /* margin: 20px 10px; */
-    margin: auto;
-    flex-wrap: wrap;
-}
-.shop .searcha, .details .searcha{
-    width: 80%;
-}
-.searcha input{
-    /* flex:2 2 120em */
-}
-.searcha button{
-    /* flex:1 1 2em; */
-    position: absolute;
-    background-color: #333;
-}
+
 ul{
     padding: 0px;
     
@@ -147,8 +131,6 @@ li{
     margin-bottom: 20px;
     background-color: #f2f2f2;
     color: #333;
-    /* border: 3px solid #333;
-    border-radius: 15px 50px; */ 
     margin: 10px;
 }
 
@@ -158,12 +140,11 @@ li{
 .btn-wrap{
   position: absolute;
   bottom: 60px;
+  left: 0px;
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
-
-
 
 .buy button{
     float: right;
@@ -220,17 +201,7 @@ li{
 }
 
 
-/* forms */
-/* form{
-    display: flex;
-    flex-direction: column;
-}
-form >*{
-    margin: 10px 30%;
-    padding: 10px 10px;
-} */
-
-/* steps  */
+/* steps in basket page  */
 
 .stepper-wrapper {
     margin-top: auto;
@@ -308,8 +279,8 @@ form >*{
     content: none;
   }
 
-/* steps */
-/* table */
+
+/* tables style */
 table {
     text-align: center;
     border-collapse: collapse;
@@ -337,7 +308,6 @@ table tbody tr:last-of-type {
     border-bottom: 2px solid #333;
 }
 
-/* table */
 .total{
     font-weight: bolder; 
     float: right; 
@@ -349,6 +319,12 @@ table tbody tr:last-of-type {
 
 .basket .btnwrapper{
     margin: 60px 10%;
+}
+
+.notfound{
+  text-align: center;
+  padding: 300px auto;
+  margin: 300px auto;
 }
 
 /* Footer */
@@ -406,13 +382,7 @@ table tbody tr:last-of-type {
       scroll-snap-align: center;
     }
   }
-  /*
-  body {
-    max-width: 37.5rem;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-    font-family: 'Lato', sans-serif;
-  } */
+  
   
   * {
     box-sizing: border-box;
@@ -590,9 +560,8 @@ table tbody tr:last-of-type {
   }
 
 /*
-search bar
+search bar style
 */
-
 
 input[type="text"] {
     width: 80%;
@@ -610,7 +579,7 @@ input[type="submit"] {
     -webkit-appearance: none;
 }
 
-/* Style the form - display items horizontally */
+/* Style the form */
 .form-inline {
   display: flex;
   flex-flow: row wrap;
@@ -623,7 +592,6 @@ input[type="submit"] {
 /* Style the input fields */
 .form-inline input {
   vertical-align: middle;
-  /* margin: 5px 10px 5px 0; */
   padding: 15px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -645,24 +613,7 @@ input[type="submit"] {
   background-color: royalblue;
 }
 
-/**/
-
-/**/
-.btna{
-  font-family: lato,sans-serif;
-  font-weight: bold;
-  font-size: 1em;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  color: #ffffff;
-  display: inline-block;
-  position: relative;
-  border: 3px solid #ffffff;
-  border-radius: 20px;
-}
-
 /*Login*/
-
 .login{
   display: flex;
   align-items: center;
@@ -704,8 +655,7 @@ input[type="submit"] {
   padding: 10px 0px;
 }
 
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+/* Responsive layout - when the screen is less than 800px wide */
 @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
     width: 100%;
@@ -713,7 +663,8 @@ input[type="submit"] {
     }
 }
 
-/* d */
+
+/* Responsive layout - when the screen is less than 936px wide */
 
 @media screen and (max-width: 936px) {
     
@@ -725,6 +676,8 @@ input[type="submit"] {
     }
 
 }
+/* Responsive layout - when the screen is less than 756px wide */
+
 @media screen and (max-width: 756px) {
     
     .cardd{
@@ -742,10 +695,14 @@ input[type="submit"] {
 
 }
 
-/* d */
+/* Responsive layout - when the screen is less than 600px wide */
+
 @media screen and (max-width: 600px) {
   input[type="text"] {
     width: 70%;
+  }
+  .delivery input[type="text"] {
+    width: 100%;
   }
   .contact{
     width: 250px;
@@ -756,7 +713,7 @@ input[type="submit"] {
 
 }
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+/* Responsive layout - when the screen is less than 400px wide */
 @media screen and (max-width: 400px) {
     .topnav a {
     float: none;
@@ -795,11 +752,5 @@ input[type="submit"] {
     }
     .contact form{
       width: 200px;
-    }
-  
-    
+    }    
 }
-
-
-/**/
-

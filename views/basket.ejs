@@ -1,5 +1,6 @@
 <%- include("./partials/top.ejs")%>
 <div class="basket">
+    <%const count= products.lenght;%>
 
     
     <div class="card">
@@ -13,6 +14,9 @@
               <div class="step-name">Confirm Order</div>
             </div>
         </div>
+        <% if(count==0){%>
+            <h2 style="text-align: center;">You have no products in basket yet !</h2>;
+        <%}else{%>
 
         <div class="vo">
             <table>
@@ -28,34 +32,39 @@
                     <%products.forEach( product =>{%>
                     <tr>
                         <td class="product"><div class="fakeimg"></div><span><%= product.name %></span></td>
-                        <td>###</td>
-                        <td>$$</td>
+                        <td><%= product.quantity %></td>
+                        <td><%= product.price %>$$</td>
                         <td><button><a class="delete" data-doc="<%= product.product_id %>">X</a></button></td>
                     </tr>
                     <%});%>
                 </tbody>
             </table>
-            <div class="total">TOTAL : ****$$</div>
+            <div class="total">TOTAL : <%= formatedTotal%>$$</div>
     
             <div class="btn-wrap">
-                <button><a href="/">button</a></button>
-                <button class="verify">button</button>
+                <button class="btn"><a href="/">button</a></button>
+                <button class="btn verify">button</button>
             </div>
         </div>
 
         <div class="co" style="display: none;">
-            <form>
-                <h3>Fill in your personal info</h3>
-                <input type="text" placeholder="input">
-                <input type="text" placeholder="input">
-                <input type="text" placeholder="input">
-                <input type="text" placeholder="input">
-            </form>
-            <div class="btn-wrap">
-                <button class="backToVerify">button</button>
-                <button class="confirm">button</button>
-            </div>
+            <div class="contact">
+                <h2>Fill in your personal info</h2>
+                <form action="orders/delivery" method="POST" class="delivery">
+                    <input type="text" name="adress" placeholder="input">
+                    <input type="text" name="city" placeholder="input">
+                    <input type="text" name="zip" placeholder="input">
+                    <input type="text" name="telephone" placeholder="input">
+                    <input type="hidden" name="totalamount" value="<%= formatedTotal%>">
+                    <input type="hidden" name="basket_id" value=`${basket_id}`>
+                    <div class="btn-wrap">
+                        <button class="btn backToVerify"><a href="/baskets">button</a></button>
+                        <button class="btn confirm" type="submit">button</button>
+                    </div>
+                </form>
+              </div>
         </div>
+        <%}%>
     </div>
     </div>
 
@@ -86,3 +95,40 @@
         
       </script>
 <%- include("./partials/bottom.ejs")%>
+
+<div class="leftcolumn">
+    <div class="card category">
+      <h3>Categories</h3>
+      <ul>
+        <% let categoryname = products[0].category_name; %>
+        <li><a href="/products/<%= categoryname %>"><%= categoryname %></a></li>
+
+          <% let subcategoriesofcategory = products.filter((item, index) => {return item.category_name == categoryname;});%>
+          <% let subcategories = new Array();%>
+          <% subcategoriesofcategory.forEach(product=>{ subcategories.push(product.subcategory_name)});%>
+
+          <%let uniquesubcategories = subcategories.filter((c, index) => { return subcategories.indexOf(c) === index;});%>
+
+          <ul>
+          <%uniquesubcategories.forEach(subcategory=>{%>
+          <li><a href="/products/<%= categoryname %>/<%= subcategory %>"><%= subcategory %></a></li>         
+          <%});%>
+          </ul>
+
+
+
+
+        <%products.forEach(product=>{%>
+            <%if(product.category_name !== categoryname){%>
+            <li><a href="/products/<%= product.category_name %>"><%= product.category_name%></a></li>
+            <% categoryname = product.category_name %>
+            <%}%>           
+        <%})%>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+

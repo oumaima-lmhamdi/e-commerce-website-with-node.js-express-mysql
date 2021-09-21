@@ -1,12 +1,18 @@
 <%- include("./partials/top.ejs")%>
+<%products.sort((a, b) => a.category_name.localeCompare(b.category_name));%>
     <div class="row">
       <div class="leftcolumn">
         <div class="card category">
           <h3>Categories</h3>
           <ul>
-            <li><a href="/products/category1">category</a></li>
-            <li><a href="">category</a></li>
-            <li><a href="">category</a></li>
+            <% let categoryname = products[0].category_name; %>
+            <li><a href="/products/<%= categoryname %>"><%= categoryname %></a></li>
+            <%products.forEach(product=>{%>
+                <%if(product.category_name !== categoryname){%>
+                <li><a href="/products/<%= product.category_name %>"><%= product.category_name%></a></li>
+                <% categoryname = product.category_name %>
+                <%}%>           
+            <%})%>
           </ul>
         </div>
       </div>
@@ -125,16 +131,12 @@
             <form action="/baskets/add" method="POST">
               <input type="hidden" name="id" value="<%= product.product_id %>">
               <button class="" type="submit"><a>button</a></button>
-          </form>
+            </form>
           </div>
         </div>
         <%})%>
         
     </div>
-      
-    <div>
-      <button class="btn load" style="float: right;" type="button" onclick="getData();">button</button>
-    </div> 
 
     </div>
 

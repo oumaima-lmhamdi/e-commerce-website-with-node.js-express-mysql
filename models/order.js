@@ -7,12 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       unique: true
     },
-    user_id: DataTypes.INTEGER,
-    delivery_location_id: DataTypes.INTEGER,
+    user_id: DataTypes.STRING,
+    deliverylocation_id: DataTypes.INTEGER,
     total_amount: DataTypes.DECIMAL,
     created_at: DataTypes.DATE,
     status: DataTypes.INTEGER,
-    reference: DataTypes.STRING,
   }, {
     freezeTableName: true,
     tableName: 'orders',

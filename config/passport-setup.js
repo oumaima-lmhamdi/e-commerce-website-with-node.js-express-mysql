@@ -24,7 +24,8 @@ passport.use(
         // options for google strategy
         callbackURL:'/auth/google/redirect',
         clientID: keys.google.clientID,
-        clientSecret: keys.google.clientSecret
+        clientSecret: keys.google.clientSecret,
+        profileFields: ['emails']
     }, (accessToken, refreshToken, profile, done) => {
         // passport callback function
         User.create({ googleId: profile.id, username: profile.displayName })
@@ -38,7 +39,8 @@ passport.use(
         // options for google strategy
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: '/auth/google/redirect'
+        callbackURL: '/auth/google/redirect',
+        profileFields: ['emails']
     }, (accessToken, refreshToken, profile, done) => {
         // check if user already exists in our own db
         User.findOne({where: {googleId: profile.id}}).then((currentUser) => {
@@ -46,6 +48,7 @@ passport.use(
                 console.log(profile);
                 // already have this user
                 console.log('user is: ', currentUser);
+                console.log('email');
                 done(null, currentUser);
             } else {
                 // if not, create user in our db

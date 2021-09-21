@@ -9,33 +9,18 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
 
-     return queryInterface.createTable('orders', {
+     return queryInterface.createTable('orders_details', {
       order_id: {
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_id: {
-        type: Sequelize.STRING(100)
-      },
-      deliverylocation_id: {
+      product_id: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      total_amount: {
+      quantity: {
         allowNull: false,
-        type: Sequelize.DECIMAL(10, 2),
-        defaultValue: 0.00
-      },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now')
-      },
-      status: {
-        allowNull: false,
-        type: Sequelize.STRING(10),
-        defaultValue: 'pending'
+        type: Sequelize.INTEGER
       },
     })
   },

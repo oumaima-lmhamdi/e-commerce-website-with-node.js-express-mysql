@@ -16,6 +16,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      user_id: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
       adress: {
         allowNull: false,
         type: Sequelize.STRING(100)
@@ -28,9 +32,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      telephone: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     })
   },

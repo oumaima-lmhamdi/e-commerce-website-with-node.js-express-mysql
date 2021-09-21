@@ -28,11 +28,12 @@ module.exports = {
       quantity: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
+        defaultValue: 1
       },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now')
       }
     })
 

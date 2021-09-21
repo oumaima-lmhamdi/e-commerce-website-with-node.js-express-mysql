@@ -23,9 +23,9 @@ const ProductController = {
 
             const products = await Product.findAll({
                 where: { category_name: req.params.category_name },
-                attributes: ['product_id', 'name', 'price'],
+                attributes: ['product_id', 'name', 'price', 'subcategory_name'],
               });
-            return res.render('shop', { products, category_name:req.params.category_name, user:req.user });
+            return res.render('shop', { products, category_name:req.params.category_name, user:req.user, url:req.route.path });
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
@@ -47,7 +47,7 @@ const ProductController = {
                 where: { category_name: req.params.category_name, subcategory_name: req.params.subcategory_name  },
                 attributes: ['product_id', 'name', 'price'],
               });
-            return res.render('shop', { products, category_name:req.params.category_name, subcategory_name:req.params.subcategory_name, user:req.user });
+            return res.render('shop', { products, category_name:req.params.category_name, subcategory_name:req.params.subcategory_name, user:req.user, url:req.route.path });
         } catch(err) {
             console.log(err)
             return res.status(500).send(err)
@@ -72,7 +72,7 @@ const ProductController = {
                     where: { name: { [Op.like]: "%" + term + "%" } },
                     attributes: ['product_id', 'name', 'price'],
                   });
-                return res.render('shop', {products, term, user:req.user} );
+                return res.render('shop', {products, term, user:req.user, url:req.route.path} );
             
             
 

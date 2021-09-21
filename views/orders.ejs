@@ -1,0 +1,62 @@
+
+<%- include("./partials/top.ejs")%>
+<h3>My orders</h3>
+
+<%const count= orders.lenght;%>
+
+<% if(count==0){%>
+    <h2>You have no orders yet !</h2>;
+<%}else{ let order_id=orders[0].order_id;%>
+  <div class='card'>
+      <h3>ORDER ID:<%= order_id%></h3>
+      <% let thisorder = orders.filter(item => item.order_id === order_id); %>
+      <p>Order delivered to <%= thisorder[0].adress%> in <%= thisorder[0].city%> with a total amount of: <%= thisorder[0].total_amount%> $$</p>
+      <table>
+          <thead>
+              <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>price</th>
+              </tr>
+          </thead>
+          <tbody>
+    <%orders.forEach(order=>{%>
+        <%if(order.order_id!= order_id){%>
+            <% order_id=order.order_id;%>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+           <div class='card'>
+            <% let thisorder = orders.filter(item => item.order_id === order_id); %>
+            <h3>ORDER ID: <%= order_id%> </h3>
+            <p>Order delivered to <%= thisorder[0].adress%> in <%= thisorder[0].city%> with a total amount of: <%= thisorder[0].total_amount%> $$</p>            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="product"><div class="fakeimg"></div><span><%= order.name %></span></td>
+                        <td><%=order.quantity%></td>
+                        <td><%=order.price%></td>
+                    </tr> 
+           <%}else{%>      
+            <tr>
+                <td class="product"><div class="fakeimg"></div><span><%= order.name %></span></td>
+                <td><%=order.quantity%></td>
+                <td><%=order.price%></td>
+            </tr> 
+           
+       <%}%>
+       <%})%>
+       <%}%> 
+    </tbody>
+</table>
+</div>
+</div>
+<%- include("./partials/bottom.ejs")%>

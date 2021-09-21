@@ -7,6 +7,8 @@ require('./config/passport-setup');
 const authRoutes = require('./routes/auth-routes');
 const productRoutes = require('./routes/productRoutes');
 const basketRoutes = require('./routes/basketRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const orderDeliveryRoutes = require('./routes/orderDeliveryRoutes');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
@@ -43,40 +45,32 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/viewDetails', (req, res) => {
-  res.render('viewDetails', { c:"home" });
-});
 
 app.get('/', (req, res) => {
 
   
- Product.findAll({
-            attributes: ['product_id', 'name', 'price'],
-          }).then(result => res.render('index', { products:result,  user:req.user })) 
-            .catch((err)=> res.status(500).send(err));        
-    }
-);
+  Product.findAll({
+             attributes: ['product_id', 'name', 'price', 'category_name'],
+           }).then(result => res.render('index', { products:result,  user:req.user })) 
+             .catch((err)=> res.status(500).send(err));        
+     }
+ );
 
 
 app.get('/contactUs', (req, res) => {
   res.render('contact', { url:req.route.path, user: req.user});
 });
 
-
-app.get('/shop', (req, res) => {
-  res.render('shop', { c:"shop" });
-});
-
-app.get('/basket', (req, res) => {
-  res.render('basket', { c:"shop" });
-});
-
+// message routes
+app.use('/messages', messageRoutes);
 // product routes
 app.use('/products', productRoutes);
 // basket routes
 app.use('/baskets', basketRoutes);
-// set up routes
+// auth routes
 app.use('/auth', authRoutes);
+// order delivery routes
+app.use('/orders', orderDeliveryRoutes);
 
 
 // 404 page
